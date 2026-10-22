@@ -1,0 +1,25 @@
+name: "Daheim+ Agent"
+version: "0.2.0"
+slug: "daheim_plus_agent"
+description: "Daheim+ Setup- und Automatisierungs-Agent fuer Home Assistant (M1/M2: Health, Installation Manifest, Gebaeude-/Raumverwaltung)"
+url: "https://github.com/daheim-plus/daheim-plus-agent"
+arch:
+  - aarch64
+  - amd64
+startup: application
+boot: auto
+init: false
+ports:
+  8099/tcp: 8099
+ports_description:
+  8099/tcp: "Daheim+ Agent Web-API und einfache Weboberflaeche"
+map:
+  - "data:rw"
+options:
+  ha_mode: "mock"
+  api_token: ""
+  ha_enable_area_registry: true
+schema:
+  ha_mode: "list(mock|live)"
+  api_token: "str"
+  ha_enable_area_registry: "bool"

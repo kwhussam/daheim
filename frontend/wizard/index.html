@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daheim+ Agent</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Daheim+ Agent</h1>
+    <p>Einfache Status- und Debug-Ansicht (M1). Der vollständige Setup-Wizard mit allen 10 Schritten folgt in M3.</p>
+  </header>
+  <main>
+    <section class="card">
+      <h2>System-Status</h2>
+      <div id="health-status" class="row">
+        <span class="muted">Lade Status…</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>API-Zugriff</h2>
+      <p class="muted">Lokaler Bearer-Token des Agent, nur für diese Browser-Sitzung gespeichert (sessionStorage), niemals an Dritte gesendet.</p>
+      <div class="row">
+        <input id="token-input" type="password" placeholder="DAHEIM_API_TOKEN" />
+        <button id="token-save">Token speichern</button>
+        <span id="token-state" class="muted"></span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Installation</h2>
+      <div class="row">
+        <input id="installation-id-input" type="text" placeholder="Installation-ID" />
+        <button id="load-manifest">Manifest laden</button>
+        <button id="create-installation">Neue Installation anlegen</button>
+      </div>
+      <div id="manifest-result" style="margin-top:16px;"></div>
+    </section>
+
+    <section class="card">
+      <h2>Hinweis</h2>
+      <p class="notice">
+        Dies ist eine technische Debug-Oberfläche für M1/M2, kein fertiger Kunden-Wizard.
+        Gebäude-/Raumdaten werden über die dokumentierte Daheim+-API verwaltet; der
+        Home-Assistant-Area-Abgleich ist Best-Effort (siehe docs/ARCHITECTURE.md).
+      </p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
